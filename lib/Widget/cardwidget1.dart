@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'containerwidget.dart';
+import 'iconwidget.dart';
 class CardWidget1 extends StatelessWidget {
   String text;
   String price;
@@ -17,13 +20,13 @@ class CardWidget1 extends StatelessWidget {
       width: 183,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: Colors.white70,
+        color: Colors.white,
       ),
       child: Stack(
         children: [
           Padding(
             padding: EdgeInsets.only(left: 150,top: 10),
-            child: Icon(Icons.favorite_border_outlined,color: Colors.red,),
+            child: IconWidget(),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +40,10 @@ class CardWidget1 extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(text),
+                child: Text(text,style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  fontSize: 15
+                ),),
               ),
               Padding(
                 padding: const EdgeInsets.only(left:8.0,right: 8.0),
@@ -75,24 +81,5 @@ class CardWidget1 extends StatelessWidget {
   }
 }
 
-class ContainerWidget extends StatelessWidget {
-  String text;
-  ContainerWidget({
-    Key? key,required this.text
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(3.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5.0),
-        border: Border.all(
-            width: 1,
-            color: Colors.green
-        ),
-      ),
-      child: Text(text,style: TextStyle(color: Colors.green),),
-    );
-  }
-}
+
