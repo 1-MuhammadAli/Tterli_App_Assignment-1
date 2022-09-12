@@ -12,11 +12,15 @@ class _IconWidgetState extends State<IconWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(onPressed: () async {
-      setState(() {
-        _isSelected=!_isSelected;
-      });
-    }, icon: _isSelected ?Icon(Icons.favorite,color: Colors.red,):
-    Icon(Icons.favorite_border_outlined,color: Colors.red,));
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _isSelected=!_isSelected;
+        });
+      },
+        child:_isSelected ?const Icon(Icons.favorite,color: Colors.red,):
+    const Icon(Icons.favorite_border_outlined,color: Colors.red,)
+    );
   }
 }
+

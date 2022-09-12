@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 class ContainerWidget extends StatelessWidget {
-  String text;
-  ContainerWidget({
+  final String text;
+  const ContainerWidget({
     Key? key,required this.text
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(3.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5.0),
         border: Border.all(
             width: 1,
-            color: Colors.green
+            color: const Color(0xff00A651)
         ),
       ),
-      child: Text(text,style: TextStyle(color: Colors.green),),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 4.0,right: 4.0,top: 1.0,bottom: 1.0),
+        child: Text(text,style:GoogleFonts.poppins(
+          fontWeight: FontWeight.w500,
+          fontSize: 12,
+          color: const Color(0xff00A651)
+        ),),
+      ),
     );
   }
 }
